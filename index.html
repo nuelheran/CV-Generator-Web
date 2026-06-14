@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <section class="support-strip" aria-label="Dukungan kreator">
+      <div class="support-strip__inner">
+        <div class="support-strip__copy">
+          <span class="support-strip__label">Dukung kreator</span>
+          <p>Jika website ini membantu, Anda bisa memberikan dukungan lewat Trakteer.</p>
+        </div>
+        <div class="support-strip__button">
+          <script type="text/javascript" src="https://edge-cdn.trakteer.id/js/embed/trbtn.min.js?v=14-05-2025"></script>
+          <script type="text/javascript">
+            (function () {
+              var trbtnId = trbtn.init(
+                "Traktir saya kopi",
+                "#be1e2d",
+                "https://trakteer.id/manuelnicholas",
+                "https://trakteer.id/images/mix/coffee.png",
+                "40"
+              );
+              trbtn.draw(trbtnId);
+            })();
+          </script>
+        </div>
+      </div>
+    </section>
+
+    <header class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">ATS Friendly CV Generator</span>
+        <h1>Buat CV profesional dari form yang sederhana.</h1>
+        <p>
+          Isi data penting seperti nama, kontak, pengalaman, pendidikan, skill, dan proyek.
+          Preview akan ter-update otomatis dengan format yang rapi, bersih, dan ramah ATS.
+        </p>
+        <div class="hero-actions">
+          <button class="primary-btn" id="scrollToFormBtn" type="button">Mulai Isi CV</button>
+          <button class="secondary-btn" id="downloadPdfTopBtn" type="button">Unduh CV PDF</button>
+          <button class="ghost-btn" id="printTopBtn" type="button">Print CV</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-cv">
+          <div class="mini-cv__top"></div>
+          <div class="mini-cv__line long"></div>
+          <div class="mini-cv__line short"></div>
+          <div class="mini-cv__grid">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="mini-cv__section"></div>
+          <div class="mini-cv__line long"></div>
+          <div class="mini-cv__line medium"></div>
+          <div class="mini-cv__section"></div>
+          <div class="mini-cv__line long"></div>
+          <div class="mini-cv__line long"></div>
+          <div class="mini-cv__line short"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="workspace" id="formStart">
+      <section class="panel form-panel">
+        <div class="panel-header">
+          <div>
+            <span class="section-label">Form CV</span>
+            <h2>Lengkapi profil Anda</h2>
+          </div>
+          <div class="form-panel__header-actions">
+            <p>Masukkan informasi inti CV. Semua data akan langsung masuk ke preview.</p>
+            <button class="ghost-btn form-preview-toggle-btn" id="formPreviewToggleBtn" type="button" aria-expanded="false" aria-controls="previewPanelBody">
+              Expand Preview
+            </button>
+          </div>
+        </div>
+
+        <form id="cvForm" class="cv-form">
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Informasi utama</h3>
+              <p>Data dasar yang selalu muncul di bagian atas CV.</p>
+            </div>
+            <div class="field-grid two-col cv-language-group">
+              <label class="field">
+                <span>Nama lengkap</span>
+                <input type="text" name="fullName" placeholder="Contoh: Ahmad Pratama" />
+              </label>
+              <label class="field">
+                <span>Posisi / Job Title</span>
+                <input type="text" name="jobTitle" placeholder="Contoh: UI/UX Designer" />
+              </label>
+              <label class="field">
+                <span>Job Title (English)</span>
+                <input type="text" name="jobTitleEn" placeholder="Contoh: Product Designer" />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="nama@email.com" />
+              </label>
+              <label class="field">
+                <span>No. telepon</span>
+                <input type="text" name="phone" placeholder="+62 812 3456 7890" />
+              </label>
+              <label class="field">
+                <span>Lokasi</span>
+                <input type="text" name="location" placeholder="Jakarta, Indonesia" />
+              </label>
+              <label class="field">
+                <span>LinkedIn / Website</span>
+                <input type="text" name="website" placeholder="linkedin.com/in/namaanda" />
+              </label>
+              <label class="field">
+                <span>GitHub</span>
+                <input type="text" name="github" placeholder="github.com/namaanda" />
+              </label>
+              <label class="field">
+                <span>Portfolio</span>
+                <input type="text" name="portfolio" placeholder="namaanda.com" />
+              </label>
+              <label class="field">
+                <span>Instagram / X / Sosial lain</span>
+                <input type="text" name="instagram" placeholder="@namaanda" />
+              </label>
+            </div>
+            <label class="field">
+              <span>Ringkasan profesional</span>
+              <textarea name="summary" rows="5" placeholder="Tulis ringkasan singkat yang menjelaskan pengalaman, keahlian utama, dan value Anda untuk recruiter."></textarea>
+            </label>
+            <label class="field">
+              <span>Professional summary (English)</span>
+              <textarea name="summaryEn" rows="4" placeholder="Opsional untuk mode English atau Bilingual."></textarea>
+            </label>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Tampilan CV</h3>
+              <p>Pilih template yang tetap rapi untuk ATS, lalu tambahkan foto jika memang dibutuhkan.</p>
+            </div>
+            <div class="template-picker" id="templatePicker">
+              <button class="template-option active" type="button" data-template-option="classic">
+                <strong>Klasik ATS</strong>
+                <span>Formal, bersih, dan aman untuk mayoritas lowongan.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="modern">
+                <strong>Modern Pro</strong>
+                <span>Aksen visual lebih modern tanpa mengganggu keterbacaan.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="executive">
+                <strong>Executive</strong>
+                <span>Tampilan lebih premium untuk posisi senior dan manajerial.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="creative">
+                <strong>Creative CV</strong>
+                <span>Lebih berwarna, memakai icon, badge, dan elemen visual kreatif.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="minimalCreative">
+                <strong>Minimal Creative</strong>
+                <span>Clean namun tetap artistik dengan aksen warna yang halus.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="boldCreative">
+                <strong>Bold Creative</strong>
+                <span>Kontras tinggi, tegas, dan cocok untuk profil yang ingin tampil standout.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="pastelCreative">
+                <strong>Pastel Creative</strong>
+                <span>Lembut, elegan, dan lebih playful dengan nuansa warna pastel.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="designer">
+                <strong>Designer CV</strong>
+                <span>Editorial, artistik, dan cocok untuk profil desain kreatif.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="developer">
+                <strong>Developer CV</strong>
+                <span>Teknis, modern, dan bernuansa produk atau engineering.</span>
+              </button>
+              <button class="template-option" type="button" data-template-option="marketing">
+                <strong>Marketing CV</strong>
+                <span>Dinamis, komunikatif, dan lebih energik untuk branding personal.</span>
+              </button>
+            </div>
+
+            <div class="field-grid two-col">
+              <label class="field select-field">
+                <span>Bahasa CV</span>
+                <select name="cvLanguage" id="cvLanguageSelect">
+                  <option value="id">Indonesia</option>
+                  <option value="en">English</option>
+                  <option value="bilingual">Bilingual</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="photo-uploader photo-uploader--spaced">
+              <div class="photo-uploader__copy">
+                <h4>Foto Profil (Opsional)</h4>
+                <p>Foto hanya ditampilkan jika Anda upload. Jika tidak perlu, CV tetap tampil tanpa foto.</p>
+              </div>
+              <div class="photo-uploader__controls">
+                <label class="secondary-btn file-trigger" for="photoInput">Upload foto</label>
+                <input id="photoInput" type="file" accept="image/*" hidden />
+                <button class="ghost-btn" id="removePhotoBtn" type="button">Hapus foto</button>
+              </div>
+              <div class="photo-note">Ukuran file foto maksimum: 10 MB.</div>
+              <div class="photo-meta" id="photoMeta">Belum ada foto yang dipilih.</div>
+            </div>
+
+            <div class="order-manager">
+              <div class="order-manager__head">
+                <h4>Urutan section CV</h4>
+                <p>Atur bagian mana yang tampil lebih dulu di preview dan file PDF.</p>
+              </div>
+              <div id="sectionOrderList" class="order-list"></div>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Pengalaman kerja</h3>
+              <p>Gunakan poin yang jelas, terukur, dan relevan dengan posisi yang dituju.</p>
+            </div>
+            <div id="experienceList" class="stack-list"></div>
+            <button class="add-btn" type="button" data-add="experience">+ Tambah pengalaman</button>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Pendidikan</h3>
+              <p>Masukkan pendidikan formal, kursus intensif, atau bootcamp yang relevan.</p>
+            </div>
+            <div id="educationList" class="stack-list"></div>
+            <button class="add-btn" type="button" data-add="education">+ Tambah pendidikan</button>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Skill utama</h3>
+              <p>Tambahkan skill teknis maupun non-teknis yang mendukung posisi Anda.</p>
+            </div>
+            <div id="skillList" class="chip-editor"></div>
+            <div class="inline-form">
+              <input id="skillInput" type="text" placeholder="Contoh: Figma, SQL, Public Speaking" />
+              <button class="secondary-btn" id="addSkillBtn" type="button">Tambah skill</button>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <div class="section-title-wrap">
+              <h3>Proyek dan sertifikasi</h3>
+              <p>Opsional, tetapi sering membantu memperkuat CV.</p>
+            </div>
+            <label class="field">
+              <span>Proyek unggulan</span>
+              <textarea name="projects" rows="4" placeholder="Pisahkan setiap proyek dengan baris baru. Contoh: Redesign aplikasi mobile untuk onboarding pengguna baru."></textarea>
+            </label>
+            <label class="field">
+              <span>Sertifikasi / pelatihan</span>
+              <textarea name="certifications" rows="4" placeholder="Pisahkan setiap item dengan baris baru."></textarea>
+            </label>
+            <label class="field">
+              <span>Bahasa</span>
+              <textarea name="languages" rows="3" placeholder="Contoh: Indonesia (Native), Inggris (Professional Working Proficiency)"></textarea>
+            </label>
+          </section>
+
+          <div class="form-actions">
+            <button class="secondary-btn" id="downloadPdfBtn" type="button">Unduh CV PDF</button>
+            <button class="ghost-btn" id="resetBtn" type="button">Reset data</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="panel preview-panel">
+        <div class="panel-header preview-header">
+          <div>
+            <span class="section-label">Live Preview</span>
+            <h2>Template CV ATS-Friendly</h2>
+          </div>
+          <div class="preview-header__actions">
+            <p>Desain CV dibuat bersih, formal, mudah dibaca, dan siap diprint.</p>
+            <button class="ghost-btn preview-toggle-btn" id="previewToggleBtn" type="button" aria-expanded="true" aria-controls="previewPanelBody">
+              Collapse Preview
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-panel__body" id="previewPanelBody">
+          <div class="preview-toolbar">
+          <span class="status-pill">Auto-save aktif</span>
+          <span class="status-pill alt" id="activeTemplateBadge">Template Klasik ATS</span>
+          <span class="status-pill alt" id="activeLanguageBadge">Bahasa Indonesia</span>
+          <span class="status-pill alt">Format ATS</span>
+          </div>
+
+          <div class="cv-preview-wrap">
+            <article class="cv-preview template-classic" id="cvPreview">
+            <header class="cv-header">
+              <div class="cv-header__main">
+                <div class="cv-header__identity">
+                  <h1 id="previewName">Nama Lengkap</h1>
+                  <p id="previewTitle">Posisi / Job Title</p>
+                  <div class="cv-contacts" id="previewContacts"></div>
+                </div>
+                <div class="cv-photo-wrap" id="previewPhotoWrap" aria-hidden="true">
+                  <img id="previewPhoto" alt="Foto profil kandidat" />
+                </div>
+              </div>
+            </header>
+
+            <section class="cv-section" id="summarySection">
+              <h2 id="headingSummary">Ringkasan</h2>
+              <div id="previewSummary" class="summary-block">
+                <p>
+                  Ringkasan profesional akan muncul di sini setelah form diisi. Gunakan 3-4 kalimat
+                  yang relevan, jelas, dan berfokus pada hasil.
+                </p>
+              </div>
+            </section>
+
+            <section class="cv-section" id="experienceSection">
+              <h2 id="headingExperience">Pengalaman Kerja</h2>
+              <div id="previewExperiences" class="cv-section-list"></div>
+            </section>
+
+            <section class="cv-section" id="educationSection">
+              <h2 id="headingEducation">Pendidikan</h2>
+              <div id="previewEducations" class="cv-section-list"></div>
+            </section>
+
+            <section class="cv-section" id="skillsSection">
+              <h2 id="headingSkills">Skill</h2>
+              <div id="previewSkills" class="skill-tags preview-tags"></div>
+            </section>
+
+            <section class="cv-section" id="projectsSection">
+              <h2 id="headingProjects">Proyek Unggulan</h2>
+              <ul id="previewProjects" class="plain-list"></ul>
+            </section>
+
+            <section class="cv-section" id="certificationsSection">
+              <h2 id="headingCertifications">Sertifikasi</h2>
+              <ul id="previewCertifications" class="plain-list"></ul>
+            </section>
+
+            <section class="cv-section" id="languagesSection">
+              <h2 id="headingLanguages">Bahasa</h2>
+              <ul id="previewLanguages" class="plain-list"></ul>
+            </section>
+            </article>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <template id="experienceTemplate">
+    <div class="repeat-card" data-type="experience">
+      <div class="repeat-card__top">
+        <h4>Pengalaman</h4>
+        <button class="remove-btn" type="button">Hapus</button>
+      </div>
+      <div class="field-grid two-col">
+        <label class="field">
+          <span>Posisi</span>
+          <input type="text" data-field="role" placeholder="Frontend Developer" />
+        </label>
+        <label class="field">
+          <span>Perusahaan</span>
+          <input type="text" data-field="company" placeholder="PT Maju Digital" />
+        </label>
+        <label class="field">
+          <span>Tanggal mulai</span>
+          <input type="text" data-field="startDate" placeholder="Jan 2023" />
+        </label>
+        <label class="field">
+          <span>Tanggal selesai</span>
+          <input type="text" data-field="endDate" placeholder="Sekarang" />
+        </label>
+      </div>
+      <label class="field">
+        <span>Pencapaian / deskripsi</span>
+        <textarea rows="4" data-field="details" placeholder="Pisahkan tiap poin dengan baris baru. Contoh: Meningkatkan conversion rate sebesar 18%."></textarea>
+      </label>
+    </div>
+  </template>
+
+  <template id="educationTemplate">
+    <div class="repeat-card" data-type="education">
+      <div class="repeat-card__top">
+        <h4>Pendidikan</h4>
+        <button class="remove-btn" type="button">Hapus</button>
+      </div>
+      <div class="field-grid two-col">
+        <label class="field">
+          <span>Institusi</span>
+          <input type="text" data-field="institution" placeholder="Universitas Indonesia" />
+        </label>
+        <label class="field">
+          <span>Jurusan / Program</span>
+          <input type="text" data-field="degree" placeholder="S1 Sistem Informasi" />
+        </label>
+        <label class="field">
+          <span>Tahun mulai</span>
+          <input type="text" data-field="startDate" placeholder="2018" />
+        </label>
+        <label class="field">
+          <span>Tahun selesai</span>
+          <input type="text" data-field="endDate" placeholder="2022" />
+        </label>
+      </div>
+      <label class="field">
+        <span>Keterangan tambahan</span>
+        <textarea rows="3" data-field="details" placeholder="Contoh: GPA 3.82 / 4.00, fokus pada UI engineering."></textarea>
+      </label>
+    </div>
+  </template>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script>
+  <script src="script.js"></script>
+</body>
+</html>
