@@ -1030,7 +1030,8 @@ window.addEventListener("afterprint", () => {
 });
 
 document.getElementById("printTopBtn").addEventListener("click", printCV);
-document.getElementById("downloadPdfBtn").addEventListener("click", (event) => downloadPDF(event.currentTarget));
+// document.getElementById("downloadPdfBtn").addEventListener("click", (event) => downloadPDF(event.currentTarget)); //commented on 15-JUN-2026
+document.getElementById("downloadPdfBtn").addEventListener("click", (event) => printCV(event.currentTarget));
 document.getElementById("downloadPdfTopBtn").addEventListener("click", (event) => downloadPDF(event.currentTarget));
 document.getElementById("scrollToFormBtn").addEventListener("click", () => {
   document.getElementById("formStart").scrollIntoView({ behavior: "smooth", block: "start" });
