@@ -2242,3 +2242,259 @@ button {
     padding: 5px 8px;
   }
 }
+
+/* Style untuk PDF Export - disamakan dengan print mode */
+.cv-preview.pdf-export.print-export {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  min-height: auto !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 12mm 10mm !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-header {
+  padding-bottom: 4mm !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-header h1 {
+  font-size: 1.7rem !important;
+  line-height: 1.04 !important;
+  margin-top: 0 !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-header p {
+  font-size: 0.95rem !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-contacts {
+  gap: 7px 10px !important;
+  margin-top: 8px !important;
+  font-size: 0.84rem !important;
+}
+
+.cv-preview.pdf-export.print-export .contact-pill {
+  padding: 5px 8px !important;
+  font-size: 0.8rem !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-photo-wrap {
+  width: 28mm !important;
+  height: 28mm !important;
+  border-radius: 8px !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-header,
+.cv-preview.pdf-export.print-export .cv-item {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-section {
+  break-inside: auto !important;
+  page-break-inside: auto !important;
+  margin-top: 10px !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-section h2 {
+  margin-bottom: 8px !important;
+  padding-bottom: 6px !important;
+  font-size: 0.93rem !important;
+  letter-spacing: 0.07em !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-section p,
+.cv-preview.pdf-export.print-export .cv-section li,
+.cv-preview.pdf-export.print-export .cv-item__subtitle,
+.cv-preview.pdf-export.print-export .cv-item__date,
+.cv-preview.pdf-export.print-export .cv-contacts,
+.cv-preview.pdf-export.print-export .preview-tags .chip {
+  font-size: 0.88rem !important;
+  line-height: 1.38 !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-section-list {
+  gap: 9px !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-item__head {
+  margin-bottom: 4px !important;
+}
+
+.cv-preview.pdf-export.print-export .cv-section-list .cv-item + .cv-item {
+  padding-top: 6px !important;
+  border-top: 1px solid rgba(203, 213, 225, 0.55) !important;
+}
+
+.cv-preview.pdf-export.print-export .plain-list {
+  margin-top: 4px !important;
+  padding-left: 18px !important;
+}
+
+.cv-preview.pdf-export.print-export .plain-list li + li {
+  margin-top: 2px !important;
+}
+
+.cv-preview.pdf-export.print-export .preview-tags,
+.cv-preview.pdf-export.print-export .skill-tags {
+  gap: 5px !important;
+}
+
+.cv-preview.pdf-export.print-export .preview-tags .chip,
+.cv-preview.pdf-export.print-export .skill-tags .chip {
+  padding: 5px 8px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic {
+  padding: 8mm 9mm 7mm !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-header {
+  padding-bottom: 3.5mm !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-header p {
+  margin-top: 6px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-contacts {
+  margin-top: 7px !important;
+  gap: 5px 10px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-section {
+  margin-top: 8px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-section h2 {
+  margin-bottom: 6px !important;
+  padding-bottom: 5px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-section-list {
+  gap: 7px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-item__head {
+  margin-bottom: 3px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .cv-section-list .cv-item + .cv-item {
+  padding-top: 5px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .plain-list {
+  margin-top: 3px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-classic .plain-list li + li {
+  margin-top: 1px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative {
+  background:
+    radial-gradient(circle at top right, rgba(79, 124, 255, 0.08), transparent 24%),
+    linear-gradient(180deg, #ffffff, #fbfcff 62%, #f6f9ff 100%) !important;
+  border-top-width: 6px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative::before,
+.cv-preview.pdf-export.print-export.template-creative::after {
+  display: block !important;
+  opacity: 0.42 !important;
+  filter: blur(2px) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative .cv-header,
+.cv-preview.pdf-export.print-export.template-minimalCreative .cv-header,
+.cv-preview.pdf-export.print-export.template-boldCreative .cv-header,
+.cv-preview.pdf-export.print-export.template-pastelCreative .cv-header,
+.cv-preview.pdf-export.print-export.template-designer .cv-header,
+.cv-preview.pdf-export.print-export.template-developer .cv-header,
+.cv-preview.pdf-export.print-export.template-marketing .cv-header {
+  margin: 0 0 4.5mm !important;
+  padding: 7mm 10mm 6mm !important;
+  border-radius: 0 0 14px 14px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative,
+.cv-preview.pdf-export.print-export.template-minimalCreative,
+.cv-preview.pdf-export.print-export.template-boldCreative,
+.cv-preview.pdf-export.print-export.template-pastelCreative,
+.cv-preview.pdf-export.print-export.template-designer,
+.cv-preview.pdf-export.print-export.template-developer,
+.cv-preview.pdf-export.print-export.template-marketing {
+  padding: 0 0 8mm !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative .cv-section {
+  margin: 0 10mm 7px !important;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-minimalCreative .cv-section,
+.cv-preview.pdf-export.print-export.template-boldCreative .cv-section,
+.cv-preview.pdf-export.print-export.template-pastelCreative .cv-section,
+.cv-preview.pdf-export.print-export.template-designer .cv-section,
+.cv-preview.pdf-export.print-export.template-developer .cv-section,
+.cv-preview.pdf-export.print-export.template-marketing .cv-section {
+  padding: 14px 14px 12px !important;
+  margin: 0 10mm 7px !important;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.04) !important;
+  background: rgba(255, 255, 255, 0.98) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-minimalCreative .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-boldCreative .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-pastelCreative .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-designer .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-developer .cv-section + .cv-section,
+.cv-preview.pdf-export.print-export.template-marketing .cv-section + .cv-section {
+  margin-top: 7px !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative #languagesSection {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.cv-preview.pdf-export.print-export.template-creative .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.08) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-boldCreative .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.08) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-pastelCreative .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.12) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-designer .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.08) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-developer .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-marketing .cv-item::before {
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.08) !important;
+}
+
+.cv-preview.pdf-export.print-export.template-boldCreative .cv-section h2,
+.cv-preview.pdf-export.print-export.template-pastelCreative .cv-section h2,
+.cv-preview.pdf-export.print-export.template-designer .cv-section h2,
+.cv-preview.pdf-export.print-export.template-developer .cv-section h2,
+.cv-preview.pdf-export.print-export.template-marketing .cv-section h2 {
+  padding-bottom: 9px !important;
+  margin-bottom: 11px !important;
+}
