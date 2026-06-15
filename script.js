@@ -920,15 +920,13 @@ async function downloadPDF(triggerButton) {
   sandbox.style.position = "fixed";
   sandbox.style.left = "-10000px";
   sandbox.style.top = "0";
-  sandbox.style.width = "190mm";
+  sandbox.style.width = "210mm";
   sandbox.style.padding = "0";
   sandbox.style.background = "#ffffff";
   sandbox.style.zIndex = "-1";
-  sandbox.style.visibility = "hidden";
-  sandbox.setAttribute("aria-hidden", "true");
 
   const clone = cvPreview.cloneNode(true);
-  clone.classList.add("pdf-export", "print-export");
+  clone.classList.add("pdf-export");
   clone.style.boxShadow = "none";
   clone.style.borderRadius = "0";
   clone.style.minHeight = "auto";
@@ -942,7 +940,7 @@ async function downloadPDF(triggerButton) {
     await window.html2pdf()
       .set({
         filename: getPdfFileName(),
-        margin: [10, 10, 10, 10],
+        margin: [6, 6, 6, 6],
         image: { type: "jpeg", quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
         jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
