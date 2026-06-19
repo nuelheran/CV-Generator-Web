@@ -433,7 +433,7 @@ function syncPhotoMeta(message) {
   }
 
   photoMeta.textContent = state.photoDataUrl
-    ? `Foto profil aktif dan akan ikut tampil di preview serta file PDF. Maksimum file upload ${MAX_PHOTO_SIZE_MB} MB.`
+    ? `Foto profil aktif dan akan ikut tampil di preview serta file PDF.`
     : `Belum ada foto yang dipilih. Maksimum file upload ${MAX_PHOTO_SIZE_MB} MB.`;
 }
 
@@ -905,6 +905,50 @@ function setTemplate(templateName) {
 }
 
 async function downloadPDF(triggerButton) {
+  const element = cvPreview.cloneNode(true);
+  element.classList.add("pdf-export", "print-export");
+  
+  // Atur style foto
+  const photo = element.querySelector('.cv-photo-wrap img');
+  if (photo) {
+    // Pastikan foto dimuat dengan benar
+    const img = new Image();
+    img.src = photo.src;
+    await new Promise(resolve => {
+      img.onload = resolve;
+      img.onerror = resolve;
+    });
+    
+    // Gunakan canvas untuk render foto
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const size = 120; // Ukuran dalam pixel
+    canvas.width = size;
+    canvas.height = size;
+    ctx.imageSmoothingEnabled = true;
+    ctx.imageSmoothingQuality = 'high';
+    
+    // Gambar dengan proporsi yang benar
+    const aspect = img.width / img.height;
+    let dw, dh;
+    if (aspect > 1) {
+      dw = size;
+      dh = size / aspect;
+    } else {
+      dh = size;
+      dw = size * aspect;
+    }
+    const dx = (size - dw) / 2;
+    const dy = (size - dh) / 2;
+    
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, size, size);
+    ctx.drawImage(img, dx, dy, dw, dh);
+    
+    // Ganti src dengan canvas
+    photo.src = canvas.toDataURL('image/jpeg', 0.95);
+  }
+
   if (typeof window.html2pdf === "undefined") {
     await printCV();
     return;
@@ -937,14 +981,56 @@ async function downloadPDF(triggerButton) {
 
   try {
     await waitForStableCvLayout(clone);
+    // await window.html2pdf()
+    //   .set({
+    //     filename: getPdfFileName(),
+    //     margin: [6, 6, 6, 6],
+    //     image: { type: "jpeg", quality: 0.98 },
+    //     html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
+    //     jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+    //     pagebreak: { mode: ["css", "legacy"], avoid: [".cv-header", ".cv-item", ".cv-photo-wrap"] }
+    //   })
+    //   .from(clone)
+    //   .save();
+
+    // ------------------------
     await window.html2pdf()
       .set({
         filename: getPdfFileName(),
         margin: [6, 6, 6, 6],
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: "#ffffff" },
-        jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
-        pagebreak: { mode: ["css", "legacy"], avoid: [".cv-header", ".cv-item", ".cv-photo-wrap"] }
+        image: { 
+          type: "jpeg", 
+          quality: 1.0  // Maksimal kualitas
+        },
+        html2canvas: { 
+          scale: 3,  // Tingkatkan dari 2 ke 3 untuk kualitas lebih baik
+          useCORS: true,
+          backgroundColor: "#ffffff",
+          logging: false,
+          width: clone.scrollWidth,
+          height: clone.scrollHeight,
+          windowWidth: clone.scrollWidth,
+          onclone: function(doc) {
+            // Pastikan semua gambar termuat
+            const images = doc.querySelectorAll('img');
+            images.forEach(img => {
+              if (img.complete && img.naturalHeight === 0) {
+                // Reload gambar jika gagal
+                img.src = img.src;
+              }
+            });
+          }
+        },
+        jsPDF: { 
+          unit: "mm", 
+          format: "a4", 
+          orientation: "portrait",
+          compress: true
+        },
+        pagebreak: { 
+          mode: ["css", "legacy"], 
+          avoid: [".cv-header", ".cv-item", ".cv-photo-wrap"] 
+        }
       })
       .from(clone)
       .save();

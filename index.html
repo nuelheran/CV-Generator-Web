@@ -44,12 +44,24 @@
 
     <header class="hero">
       <div class="hero-copy">
-        <span class="eyebrow">ATS Friendly CV Generator</span>
-        <h1>Buat CV profesional dari form yang sederhana secara gratis.</h1>
+        <span class="eyebrow">✦ ATS Friendly CV Generator</span>
+        <!-- <h1>Buat CV profesional dari form yang sederhana secara gratis.</h1> -->
+        <h1>CV profesional siap dalam<br /><span class="hero-highlight">hitungan menit.</span></h1>
         <p>
-          Isi data penting seperti nama, kontak, pengalaman, pendidikan, skill, dan proyek.
-          Preview akan ter-update otomatis dengan format yang rapi, bersih, dan ramah ATS.
+          <!-- Isi data penting seperti nama, kontak, pengalaman, pendidikan, skill, dan proyek.
+          Preview akan ter-update otomatis dengan format yang rapi, bersih, dan ramah ATS. -->
+
+          Isi data Anda sekali — nama, kontak, pengalaman, pendidikan, skill, proyek.
+          Preview ter-update real-time dengan format yang bersih, rapi, dan tembus sistem ATS recruiter.
         </p>
+
+        <ul class="hero-features">
+          <li><span class="feat-icon">⚡</span> Auto-save ke browser</li>
+          <li><span class="feat-icon">📄</span> 10 template pilihan</li>
+          <li><span class="feat-icon">🌐</span> 3 bahasa: ID / EN / Bilingual</li>
+          <li><span class="feat-icon">🖨️</span> Export PDF &amp; Print langsung</li>
+        </ul>
+
         <div class="hero-actions">
           <button class="primary-btn" id="scrollToFormBtn" type="button">Mulai Isi CV</button>
           <button class="secondary-btn" id="downloadPdfTopBtn" type="button">Unduh CV PDF</button>
@@ -364,9 +376,13 @@
             </section>
             </article>
           </div>
-        </div>
+        </div> 
       </aside>
     </main>
+
+    <footer class="site-footer">
+      <p>Dibuat dengan ❤️ untuk para pencari kerja Indonesia &nbsp;·&nbsp; Data tersimpan di browser Anda, tidak dikirim ke server manapun.</p>
+    </footer>
   </div>
 
   <template id="experienceTemplate">
@@ -431,7 +447,9 @@
     </div>
   </template>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" referrerpolicy="no-referrer"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.12.1/html2pdf.bundle.min.js" integrity="sha512-D25Z8/1q2z65ZpJ3NzY6XiPZfwjhbv34OTQHDIZd+KPK+uWCovGt+fMkSzW8ArzCMFUgZt6Cdu7qoXNuy6a2GA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="script.js"></script>
+
 </body>
 </html>
